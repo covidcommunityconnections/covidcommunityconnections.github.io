@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+      rel="icon"
+      href="https://live.staticflickr.com/65535/50228098801_a8a3e57871_o.png"
+    />
+    <title>Experiences</title>
+
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <script src="/sketch.js" defer></script>
+    <script src="/script.js" defer></script>
+  </head>
+
+  <script>
+    function show_menu() {
+      document.getElementById("menu_show").classList.remove("active");
+      document.getElementById("menu_display").style.display = "none";
+      document.getElementById("menu_show").style.display = "flex";
+      document.getElementById("menu_show_text").style.display = "flex";
+      document.getElementById("menu_cover").style.display = "block";
+    }
+
+    function hide_menu() {
+      document.getElementById("menu_show").classList.add("active");
+      document.getElementById("menu_display").style.display = "block";
+      document.getElementById("menu_show_text").style.display = "none";
+      document.getElementById("menu_cover").style.display = "none";
+      document.getElementById("popup").style.display = "none";
+    }
+         setTimeout(function () {
+        document.getElementById("loading_div").style.zIndex = 0;
+       
+      }, 4000);
+  </script>
+  <style>
+    #sketch-div {
+      position: absolute;
+      left: 0px;
+      top: -5vh;
+      z-index: 1;
+      height: 10vh;
+    }
+  </style>
+  <body onload="show_experience_grid(6, -1)">
+    <div class="header"></div>
+
+    <div class="page_content">
+      <div class="experiences_container">
+        <h1>Experiences</h1>
+
+        <div class="search_container">
+          <input
+            class="search"
+            type="text"
+            placeholder="Search for specific symptoms"
+            id="experiences_search"
+            onkeydown="if (event.keyCode == 13)
+                            document.getElementById('search_btn').click()"
+          />
+          <div
+            class="search_btn"
+            id="search_btn"
+            onclick="search_experiences();"
+          >
+            Search
+          </div>
+        </div>
+        <div class="additional">
+          <h2 onclick="show_experience_grid(6, -1)">
+            <span>See More Experiences</span>
+          </h2>
+          <h2 class="rightalign" onclick="window.location='form.html'">
+            <span>Submit Your Experience</span>
+          </h2>
+        </div>
+
+        <div class="show_experiences" id="show_experiences"></div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup">
+      <div class="close_popup" onclick="hide_menu();">
+        x
+      </div>
+      <h1 id="popup_header"></h1>
+      <p id="popup_description"></p>
+      <h2 id="symp_title">
+        Symptoms
+      </h2>
+      <div class="symptom_tags" id="symptom_tags"></div>
+      <h2 id="popup_age">
+      </h2>
+    </div>
+    <div class="name-display" onclick="window.location='index.html'">
+        <img src="https://live.staticflickr.com/65535/50227439918_07231de942_o.png"/>
+    </div>
+        <div class="name-display-mob" onclick="window.location='index.html'">
+        <img src="https://live.staticflickr.com/65535/50228008131_d7fcca11d5_o.png"/>
+    </div>
+    <div class="menu-display" id="menu_display" onclick="show_menu();">
+      <h1>
+        menu
+      </h1>
+    </div>
+    <div class="menu-cover" id="menu_cover" onclick="hide_menu()"></div>
+    <div class="menu-show main_pages" id="menu_show"></div>
+    <div class="menu-show-text" id="menu_show_text">
+      <div class="x" id="x" onclick="hide_menu()">
+        <h1>
+          x
+        </h1>
+      </div>
+      <h1 onclick="window.location='index.html'">
+        Home
+      </h1>
+      <h1 onclick="window.location='experiences.html'">
+        <span>Experiences</span>
+      </h1>
+      <h1 onclick="window.location='statistics.html'">
+        Statistics
+      </h1>
+      <h1 onclick="window.location='information.html'">
+        Information
+      </h1>
+      <h1 onclick="window.location='connect.html'">
+        Connect
+      </h1>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="sketch-div"></div>
+            <div class="loading_div" id="loading_div">
+          <img class="loading_screen" src="https://drive.google.com/uc?id=1SNUuOzxfSV1eicHYHYZ4fhUMt0OAd4DM"/>
+        </div>
+  </body>
+</html>
