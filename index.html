@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+      rel="icon"
+      href="https://live.staticflickr.com/65535/50228098801_a8a3e57871_o.png"
+    />
+    <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/sketch.js" defer></script>
+  </head>
+  <style>
+    #sketch-div {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
+    }
+  </style>
+  <script>
+    function show_menu() {
+      document.getElementById("menu_show").classList.remove("active");
+      document.getElementById("menu_display").style.display = "none";
+      document.getElementById("menu_show").style.display = "flex";
+      document.getElementById("menu_show_text").style.display = "flex";
+    }
+
+    function hide_menu() {
+      document.getElementById("menu_show").classList.add("active");
+      document.getElementById("menu_display").style.display = "block";
+      document.getElementById("menu_show_text").style.display = "none";
+    }
+         setTimeout(function () {
+        document.getElementById("loading_div").style.zIndex = 0;
+       
+      }, 4000);
+  </script>
+  <body>
+    <div class="home-content">
+      <div class="home-text">
+        <h1>
+          Welcome to <br />
+        </h1>
+    <img src="https://live.staticflickr.com/65535/50228074351_7f2ec4e86e_o.png"/>
+        <h2>
+          Connect with people around the globe to share your
+          experiences with COVID-19
+        </h2>
+      </div>
+    </div>
+    <div class="menu-display" id="menu_display" onclick="show_menu();">
+      <h1>
+        menu
+      </h1>
+    </div>
+    <div class="menu-show" id="menu_show"></div>
+
+    <div class="menu-show-text" id="menu_show_text">
+      <div class="x" id="x" onclick="hide_menu()">
+        <h1>
+          x
+        </h1>
+      </div>
+      <h1>
+        <span>Home</span>
+      </h1>
+      <h1 onclick="window.location='experiences.html'">
+        Experiences
+      </h1>
+      <h1 onclick="window.location='statistics.html'">
+        Statistics
+      </h1>
+      <h1 onclick="window.location='information.html'">
+        Information
+      </h1>
+      <h1 onclick="window.location='connect.html'">
+        Connect
+      </h1>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="sketch-div"></div>
+            <div class="loading_div" id="loading_div">
+          <img class="loading_screen" src="https://drive.google.com/uc?id=1SNUuOzxfSV1eicHYHYZ4fhUMt0OAd4DM"/>
+        </div>
+  </body>
+</html>
