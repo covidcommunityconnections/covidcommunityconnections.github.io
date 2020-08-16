@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://live.staticflickr.com/65535/50228098801_a8a3e57871_o.png"
+    />
+    <title>Information</title>
+
+    <!-- import the webpage's stylesheet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/sketch.js" defer></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase.js"></script>
+    <script src="/script.js" defer></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <style>
+    #sketch-div {
+      position: absolute;
+      left: 0px;
+      top: -5vh;
+      z-index: 1;
+      height: 10vh;
+    }
+  </style>
+  <script>
+    function show_menu() {
+      document.getElementById("menu_show").classList.remove("active");
+      document.getElementById("menu_display").style.display = "none";
+      document.getElementById("menu_show").style.display = "flex";
+      document.getElementById("menu_show_text").style.display = "flex";
+      document.getElementById("menu_cover").style.display = "block";
+    }
+    function hide_menu() {
+      document.getElementById("menu_show").classList.add("active");
+      document.getElementById("menu_display").style.display = "block";
+      document.getElementById("menu_show_text").style.display = "none";
+      document.getElementById("menu_cover").style.display = "none";
+    }
+         setTimeout(function () {
+        document.getElementById("loading_div").style.zIndex = 0;
+       
+      }, 4000);
+      </script>
+  <body onload="global_stats();">
+    <div class="header"></div>
+
+    <div class="page_content">
+      <div class="about_container">
+        <h1>Information</h1>
+        <h2>
+          <span>Global Statistics</span>
+        </h2>
+        <p>
+          Select a country to view their up-to-date case numbers.
+        </p>
+
+        <!-- partial:index.partial.html -->
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+        <div id="chartdiv"></div>
+        <!-- partial -->
+        <script src="maps_script.js"></script>
+
+        <div class="country_information">
+          <h1 id="country_name">
+            Country
+          </h1>
+          <h2>New Confirmed: <span id="new_confirmed">unavailable</span></h2>
+          <h2>
+            Total Confirmed: <span id="total_confirmed">unavailable</span>
+          </h2>
+          <h2>New Death(s): <span id="new_death">unavailable</span></h2>
+          <h2>Total Death(s): <span id="total_death">unavailable</span></h2>
+          <h2>New Recovered: <span id="new_recovered">unavailable</span></h2>
+
+          <h2>
+            Total Recovered: <span id="total_recovered">unavailable</span>
+          </h2>
+          <p style="width:100%;text-align:center;margin-top:2vh;">
+  *Statistics updated daily*
+        </p>
+        </div>
+
+        <h2>
+          <span>COVID Fact Checker</span>
+        </h2>
+        <p>
+          Below is a list of common misconceptions about COVID-19 with links to
+          the correct facts related to the statement.
+        </p>
+        
+   
+
+        <div class="faq_container" id="faq_container">
+                   
+                        <div>
+                      <p>
+            <span
+              >Myth: The flu shot will protect you against the
+              coronavirus.</span
+            ><br /><i>
+            Fact: “If you have received a flu vaccine, it will not protect
+            against coronaviruses, but will help prevent the flu. Getting the
+            flu could make you more vulnerable to other infections. Getting the
+            flu vaccine will not increase your risk of illness from
+            coronavirus.” 
+            (<a
+              href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#:~:text=If%20you%20have%20received%20a,of%20illness%20from%20coronavirus."
+              >Government of Canada</a
+            >)</i><br/>
+            Read More: <a
+              href="https://academic.oup.com/cid/advance-article/doi/10.1093/cid/ciaa626/5842161"
+              >Oxford Academic</a
+            >
+          </p>
+          </div>
+          
+                    <div>
+                      <p>
+            <span
+              >Myth: If you can hold your breath for 10 seconds without coughing or having discomfort, you do not have COVID-19 or any other lung disease
+.</span
+            ><br /><i>
+                        Fact: COVID-19 can not be confirmed with these breathing exercises, and can only truly be confirmed by getting a laboratory test done.</i><br/>
+            Read More: <a
+              href="https://cdhf.ca/health-lifestyle/covid-19-myth-busters/"
+              >Canadian Digestive Health Foundation</a
+            >
+          </p>
+          </div>
+          
+          <div>
+                      <p>
+            <span
+              >Myth: If I am a young and healthy adult, I cannot get infected by COVID-19.
+</span
+            ><br /><i>
+            Fact: People of all ages can be infected by COVID-19 and should be following good hand hygiene and social distance. It is true, however, that older people and people with pre-existing medical conditions are more vulnerable to becoming severely ill.</i><br/>
+            Read More: <a
+              href="https://cdhf.ca/health-lifestyle/covid-19-myth-busters/"
+              >Canadian Digestive Health Foundation</a
+            >
+          </p>
+          </div>
+          
+          
+         <div>
+                      <p>
+            <span
+              >Myth: By consuming certain foods, I will boost my immune system so I can better prevent catching COVID-19.</span
+            ><br /><i>
+            Fact: There is no magical food or vitamin that can prevent someone from catching COVID-19. The best preventative measures include good hygiene and social distancing.</i><br/>
+            Read More: <a
+              href="https://cdhf.ca/health-lifestyle/covid-19-myth-busters/"
+              >Canadian Digestive Health Foundation</a
+            >
+          </p>
+          </div>
+
+          
+          <div>
+                      <p>
+            <span
+              >Myth: UV lights can be used to disinfect your skin.
+</span
+            ><br /><i>
+            Fact: UV lamps should not be used for this and they can irritate and damage your skin and eyes. The most effective ways for cleaning are using water and soap to wash your hands and using alcohol-based hand rub.</i><br/>
+            Read More: <a
+              href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters#uv"
+              >WHO</a
+            >
+          </p>
+          </div>
+                               <div>
+                      <p>
+            <span
+              >Myth: Rinsing your nose with saline every day prevents infection with COVID-19.</span
+            ><br /><i>
+            Fact: There is currently no evidence that regularly rinsing your nose with saline can protect people from COVID-19.</i><br/>
+            Read More: <a
+              href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters#uv"
+              >WHO</a
+            >
+          </p>
+          </div>
+          
+
+          
+          
+         <div>
+                      <p>
+            <span
+              >Myth: Hydroxychloroquine can treat COVID-19.</span
+            ><br /><i>
+            Fact: Currently, there is no data proving that hydroxychloroquine can treat or reduce mortality rates of COVID-19 patients.</i><br/>
+            Read More: <a
+              href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters#uv"
+              >WHO</a
+            >
+          </p>
+          </div>
+
+          
+          <div>
+                      <p>
+            <span
+              >Myth: Warm weather and the sun protect you from COVID-19.</span
+            ><br /><i>
+            Fact: You can catch COVID-19, no matter the weather. The best way to protect yourself from COVID-19 is to practice proper hygiene and social distancing.</i><br/>
+            Read More: <a
+              href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters#uv"
+              >WHO</a
+            >
+          </p>
+          </div>
+          
+        </div>
+        
+        
+        
+        
+                  <p>
+            If you would like to have what you've heard about COVID-19 fact checked,
+            fill out and send the short form below. A member of our team will go over it
+            and find credible sources and then add your fact check to the website as soon as possible.
+          </p>
+                <div class="search_container faq_btn" id="hideme">
+          <input
+            class="search"
+            type="text"
+            placeholder="Write here"
+            id="faq_input"
+            onkeydown="if (event.keyCode == 13)
+                            document.getElementById('faq_btn').click()"
+          />
+                  
+                  
+                  
+                  
+          <div
+            class="search_btn"
+            id="faq_btn"
+            onclick="faq_add();"
+          >
+            Search
+          </div>
+                  
+                  
+        </div>
+        <p id="complete">
+                    
+                  </p>
+      </div>
+    </div>
+    <div class="name-display" onclick="window.location='index.html'">
+      <img
+        src="https://live.staticflickr.com/65535/50227439918_07231de942_o.png"
+      />
+    </div>
+        <div class="name-display-mob" onclick="window.location='index.html'">
+   
+        <img src="https://live.staticflickr.com/65535/50228008131_d7fcca11d5_o.png"/>
+ 
+    </div>
+    <div class="menu-display" id="menu_display" onclick="show_menu();">
+      <h1>
+        menu
+      </h1>
+    </div>
+    <div class="menu-cover" id="menu_cover" onclick="hide_menu()"></div>
+    <div class="menu-show main_pages" id="menu_show"></div>
+    <div class="menu-show-text" id="menu_show_text">
+      <div class="x" id="x" onclick="hide_menu()">
+        <h1>
+          x
+        </h1>
+      </div>
+      <h1 onclick="window.location='index.html'">
+        Home
+      </h1>
+      <h1 onclick="window.location='experiences.html'">
+        Experiences
+      </h1>
+      <h1 onclick="window.location='statistics.html'">
+        Statistics
+      </h1>
+      <h1 onclick="window.location='information.html'">
+        <span>Information</span>
+      </h1>
+      <h1 onclick="window.location='connect.html'">
+        Connect
+      </h1>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div id="sketch-div"></div>
+            <div class="loading_div" id="loading_div">
+          <img class="loading_screen" src="https://drive.google.com/uc?id=1SNUuOzxfSV1eicHYHYZ4fhUMt0OAd4DM"/>
+        </div>
+  </body>
+</html>
