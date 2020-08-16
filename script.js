@@ -30,7 +30,7 @@ ExperienceReports.once("value").then(function(snap) {
 });
 
 function show_experience(exp_num) {
-
+  // code for displaying the chosen experience in the popup
   var chosen_experience = JSON.parse(
     localStorage.getItem("shuffled_experiences")
   )[exp_num];
@@ -67,6 +67,7 @@ function show_experience(exp_num) {
 }
 
 function show_experience_grid(grid_size, experience_array) {
+  // code for showing a shuffled selection of experience reports
   var html_container = document.getElementById("show_experiences");
   html_container.innerHTML = "";
 
@@ -132,6 +133,7 @@ function show_experience_grid(grid_size, experience_array) {
 }
 
 function search_experiences() {
+  // code for filtering search results
   var search_input = document.getElementById("experiences_search").value;
 
   var reports = JSON.parse(localStorage.getItem("reports"));
@@ -180,6 +182,7 @@ function search_experiences() {
 }
 
 function faq_add() {
+  // adding a fact check to the database
   firebase
     .database()
     .ref("FactCheck/")
@@ -205,7 +208,7 @@ SympReports.once("value").then(function(snapshot) {
 });
 
 function save_form() {
-  
+  // saves the form to the database
   var title = document.getElementById("title_input").value;
   var description = document.getElementById("description_input").value;
 
