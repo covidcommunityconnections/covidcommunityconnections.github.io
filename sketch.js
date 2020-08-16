@@ -2,6 +2,9 @@
   global createCanvas, windowWidth, windowHeight, background, noStroke, random, ellipse, millis,
   width, height, HSB, colorMode, strokeWeight, line, sqrt, resizeCanvas, stroke
 */
+
+// Code for the lines animation on the home screen and headers using the p5.js library
+
 let cnv;
 let dot_num, dots;
 
