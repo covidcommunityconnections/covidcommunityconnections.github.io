@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+      rel="icon"
+      href="https://live.staticflickr.com/65535/50228098801_a8a3e57871_o.png"
+    />
+    <title>Statistics</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
+    <script src="/sketch.js" defer></script>
+    <script src="/statistics.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+
+  <script>
+    function show_menu() {
+      document.getElementById("menu_show").classList.remove("active");
+      document.getElementById("menu_display").style.display = "none";
+      document.getElementById("menu_show").style.display = "flex";
+      document.getElementById("menu_show_text").style.display = "flex";
+      document.getElementById("menu_cover").style.display = "block";
+    }
+
+    function hide_menu() {
+      document.getElementById("menu_show").classList.add("active");
+      document.getElementById("menu_display").style.display = "block";
+      document.getElementById("menu_show_text").style.display = "none";
+      document.getElementById("menu_cover").style.display = "none";
+      document.getElementById("popup").style.display = "none";
+    }
+         setTimeout(function () {
+        document.getElementById("loading_div").style.zIndex = 0;
+       
+      }, 4000);
+  </script>
+  <style>
+    #sketch-div {
+      position: absolute;
+      left: 0px;
+      top: -5vh;
+      z-index: 1;
+      height: 10vh;
+    }
+    
+  </style>
+  <body onload="showCharts();">
+    <div class="header"></div>
+
+    <div class="page_content">
+      <div class="about_container">
+        <h1>Statistics</h1>
+
+        <h2>
+          <span>Symptoms Overview</span>
+        </h2>
+        <p>
+          The following graphs are made from the data of all the people who
+          submited their experiences to the website. These graphs show the
+          different symptoms people have felt after contracting COVID-19.
+        <br/><br/>
+          To contribute to these statistics, <span class="hoverable" onclick="window.location='form.html'">click here to fill out the form.</span>
+        </p>
+        <h2>
+          <br/>
+          <span>
+            The Percentage of People Tested Positive for COVID-19 Experiencing Each Symptom
+          </span>
+        </h2>
+        <div class="legend">
+          <div>
+            <span class="dot"></span>Reported Symptom (Yes)
+          </div>
+          <div>
+            <span class="dot2"></span>Did Not Report Symptom (No)
+          </div>
+        </div>
+        <div class="charts_container">
+          <div id="chartContainer1"></div>
+          <div id="chartContainer2"></div>
+          <div id="chartContainer3"></div>
+          <div id="chartContainer4"></div>
+          <div id="chartContainer5"></div>
+          <div id="chartContainer6"></div>
+          <div id="chartContainer7"></div>
+          <div id="chartContainer8"></div>
+          <div id="chartContainer9"></div>
+          <div id="chartContainer10"></div>
+          <div id="chartContainer11"></div>
+          <div id="chartContainer12"></div>
+        </div>
+        <h2>
+          <span>Tally of Common Symptoms</span>
+        </h2>
+        <p>
+          This graph adds the symptoms people checked off in <span onclick="window.location='form.html'" class = "hoverable">this form</span> 
+          to show which symptoms are most experienced.
+        </p>
+          <div class="bar_container">
+            <div id="barContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="name-display" onclick="window.location='index.html'">
+        <img src="https://live.staticflickr.com/65535/50227439918_07231de942_o.png"/>
+
+    </div>
+        <div class="name-display-mob" onclick="window.location='index.html'">
+   
+        <img src="https://live.staticflickr.com/65535/50228008131_d7fcca11d5_o.png"/>
+ 
+    </div>
+    <div class="menu-display" id="menu_display" onclick="show_menu();">
+      <h1>
+        menu
+      </h1>
+    </div>
+    <div class="menu-cover" id="menu_cover" onclick="hide_menu()"></div>
+    <div class="menu-show main_pages" id="menu_show"></div>
+    <div class="menu-show-text" id="menu_show_text">
+      <div class="x" id="x" onclick="hide_menu()">
+        <h1>
+          x
+        </h1>
+      </div>
+      <h1 onclick="window.location='index.html'">
+        Home
+      </h1>
+      <h1 onclick="window.location='experiences.html'">
+        Experiences
+      </h1>
+      <h1 onclick="window.location='statistics.html'">
+        <span>Statistics</span>
+      </h1>
+      <h1 onclick="window.location='information.html'">
+        Information
+      </h1>
+      <h1 onclick="window.location='connect.html'">
+        Connect
+      </h1>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="sketch-div"></div>
+            <div class="loading_div" id="loading_div">
+          <img class="loading_screen" src="https://drive.google.com/uc?id=1SNUuOzxfSV1eicHYHYZ4fhUMt0OAd4DM"/>
+        </div>
+  </body>
+</html>
