@@ -4,8 +4,6 @@ Website to share experiences with COVID-19
 Created by: Camilla Djamalov, Janvi Patel and Laurel Xiang
 August 2020
 
-For the Techacks Hackathon (Health and Education Tracks)
-
 Links to resources used for this project:
 - For all of the graphs on the Statistics page | https://canvasjs.com/
 - For the world map on the Information page | https://www.amcharts.com/ 
